@@ -5,7 +5,7 @@ from django import forms
 from django.contrib import admin, messages
 from django.contrib.admin.exceptions import DisallowedModelAdminToField
 from django.contrib.admin.options import IS_POPUP_VAR, InlineModelAdmin, TO_FIELD_VAR, csrf_protect_m
-from django.contrib.admin.templatetags.admin_static import static
+from django.templatetags import static
 from django.contrib.admin.templatetags.admin_urls import add_preserved_filters
 from django.contrib.admin.utils import NestedObjects, flatten_fieldsets
 from django.core.exceptions import PermissionDenied, ValidationError
@@ -16,7 +16,6 @@ from django.forms.utils import ErrorList
 from django.http import HttpResponseRedirect
 from django.template.response import SimpleTemplateResponse
 from django.urls import reverse
-from django.utils import six
 from django.utils.encoding import force_text
 from django.utils.text import get_text_list
 from django.utils.translation import ugettext as _, ugettext_lazy
@@ -24,6 +23,7 @@ from functools import partial, update_wrapper
 
 import django
 import re
+import six
 import uuid
 
 
