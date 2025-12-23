@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-bulk-admin',
-    version='0.1.1',
+    version='0.1.2',
     packages=find_packages(exclude=('example_project*', 'screenshots',)),
     include_package_data=True,
     license='BSD',
@@ -19,7 +19,7 @@ setup(
     author='Ruben Grill',
     author_email='ruben.grill@gmail.com',
     install_requires=[
-        'Django>=1.11',
+        'Django>=3.2,<4.0',
     ],
     classifiers=[
         'Environment :: Web Environment',
@@ -27,14 +27,12 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.9',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 )

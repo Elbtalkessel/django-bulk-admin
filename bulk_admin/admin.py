@@ -5,9 +5,10 @@ from django import forms
 from django.contrib import admin, messages
 from django.contrib.admin.exceptions import DisallowedModelAdminToField
 from django.contrib.admin.options import IS_POPUP_VAR, InlineModelAdmin, TO_FIELD_VAR, csrf_protect_m
-from django.templatetags import static
+from django.templatetags.static import static
 from django.contrib.admin.templatetags.admin_urls import add_preserved_filters
 from django.contrib.admin.utils import NestedObjects, flatten_fieldsets
+from django.contrib.admin.helpers import ACTION_CHECKBOX_NAME
 from django.core.exceptions import PermissionDenied, ValidationError
 from django.db import router, transaction
 from django.forms.formsets import DELETION_FIELD_NAME, INITIAL_FORM_COUNT, TOTAL_FORM_COUNT, ManagementForm
@@ -325,7 +326,7 @@ class BulkModelAdmin(admin.ModelAdmin):
         model = self.model
         opts = model._meta
 
-        selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
+        selected = request.POST.getlist(ACTION_CHECKBOX_NAME)
         redirect_url = reverse('admin:%s_%s_bulk' % (opts.app_label, opts.model_name), current_app=self.admin_site.name)
 
         return HttpResponseRedirect('{}?pks={}'.format(redirect_url, ','.join(selected)))
